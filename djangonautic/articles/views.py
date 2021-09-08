@@ -4,12 +4,12 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def article_list(request):
+def index (request):
     articles = Article.objects.all().order_by('date')
-    return render(request, 'articles/article_list.html', {'articles':articles })
+    return render(request, 'articles/index.html', {'articles':articles })
 
-def article_detail(request, slug):
+def detail(request, slug):
     # return HttpResponse(slug)
     article = Article.objects.get(slug=slug)
 
-    return render(request, 'articles/article_detail.html', {'article':article })
+    return render(request, 'articles/detail.html', {'article':article })
